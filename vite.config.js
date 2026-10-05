@@ -6,15 +6,19 @@ export default defineConfig({
   plugins: [
     tailwindcss(),
     VitePWA({
-      registerType: 'autoUpdate', // Automatically updates the cache when you push a new build
-      includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'masked-icon.svg'], // Any static assets you add later
+      registerType: 'autoUpdate',
+
+      includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'masked-icon.svg', 'images/*.png', 'images/*.jpg'],
+      workbox: {
+        globPatterns: ['**/*.{js,css,html,ico,png,jpg,svg}']
+      },
       manifest: {
         name: 'SpoolGrid',
         short_name: 'SpoolGrid',
         description: 'Professional analog film logging',
-        theme_color: '#ffcc00', // Changes the status bar color on Android
-        background_color: '#0a0a0a', // Matches your neutral-900 UI on launch
-        display: 'standalone', // Hides the browser URL bar to feel like a native app
+        theme_color: '#ffcc00',
+        background_color: '#0a0a0a',
+        display: 'standalone',
         icons: [
           {
             src: 'pwa-192x192.png',
