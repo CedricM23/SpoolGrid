@@ -10,7 +10,8 @@ export default defineConfig({
 
       includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'masked-icon.svg', 'images/*.png', 'images/*.jpg'],
       workbox: {
-        globPatterns: ['**/*.{js,css,html,ico,png,jpg,svg}']
+        globPatterns: ['**/*.{js,css,html,ico,png,jpg,svg}'],
+        maximumFileSizeToCacheInBytes: 5000000
       },
       manifest: {
         name: 'SpoolGrid',
