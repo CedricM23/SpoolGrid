@@ -4,20 +4,28 @@ import SecondaryHeader from "../../components/SecondaryHeader/SecondaryHeader";
 export default function SettingsView() {
 
     const handleClearCache = async () => {
-        localStorage.clear();
-        if ('caches' in window) {
-            const cacheNames = await caches.keys();
-            await Promise.all(cacheNames.map(name => caches.delete(name)));
-        }
-        if ('serviceWorker' in navigator) {
-            const registrations = await navigator.serviceWorker.getRegistrations();
-            for (let registration of registrations) {
-                await registration.unregister();
+        try {
+            if ('caches' in window) {
+                const cacheNames = await caches.keys();
+                await Promise.all(cacheNames.map(name => caches.delete(name)));
             }
-        }
-        window.location.reload();
-    };
 
+            if ('serviceWorker' in navigator) {
+                const registrations = await navigator.serviceWorker.getRegistrations();
+                for (let registration of registrations) {
+                    await registration.unregister();
+                }
+            }
+
+            localStorage.clear();
+            sessionStorage.clear();
+            window.location.replace('/');
+
+        } catch (error) {
+            console.error("Failed to clear cache", error);
+            window.location.replace('/');
+        }
+    };
 
     return (
         <div>
