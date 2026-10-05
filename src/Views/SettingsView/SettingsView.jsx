@@ -2,6 +2,23 @@ import Idcard from "../../components/Idcard/Idcard";
 import SecondaryHeader from "../../components/SecondaryHeader/SecondaryHeader";
 
 export default function SettingsView() {
+
+    const handleClearCache = async () => {
+        localStorage.clear();
+        if ('caches' in window) {
+            const cacheNames = await caches.keys();
+            await Promise.all(cacheNames.map(name => caches.delete(name)));
+        }
+        if ('serviceWorker' in navigator) {
+            const registrations = await navigator.serviceWorker.getRegistrations();
+            for (let registration of registrations) {
+                await registration.unregister();
+            }
+        }
+        window.location.reload();
+    };
+
+
     return (
         <div>
             <SecondaryHeader title="Settings" />
@@ -114,7 +131,7 @@ export default function SettingsView() {
                     </button>
 
                     {/* Clear Local Cache */}
-                    <button className="btn btn-md bg-neutral-900 border border-red-900 hover:border-[#ffcc00] hover:bg-gray-800 text-white hover:text-[#ffcc00] rounded-2xl w-full flex justify-between items-center px-4 transition-all">
+                    <button className="btn btn-md bg-neutral-900 border border-red-900 hover:border-[#ffcc00] hover:bg-gray-800 text-white hover:text-[#ffcc00] rounded-2xl w-full flex justify-between items-center px-4 transition-all" onClick={handleClearCache}>
                         <span className="font-medium text-base text-red-500">Clear Local Cache</span>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5 text-red-500">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M12 9.75L14.25 12m0 0l2.25 2.25M14.25 12l2.25-2.25M14.25 12L12 14.25m-2.58 4.92l-6.375-6.375a1.125 1.125 0 010-1.59L9.42 4.83c.211-.211.498-.33.796-.33H19.5a2.25 2.25 0 012.25 2.25v10.5a2.25 2.25 0 01-2.25 2.25h-9.284c-.298 0-.585-.119-.796-.33z" />
