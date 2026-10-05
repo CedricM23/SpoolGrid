@@ -1,18 +1,24 @@
 import StatusSelect from "../StatusSelect/StatusSelect";
+import img50D from "../../images/50D.png";
+import img200T from "../../images/200T.png";
+import img7266 from "../../images/7266.png";
+import img100D from "../../images/100D.png";
+import img500T from "../../images/500T.png";
 
 export default function SpoolCard({ name, status, stock }) {
 
     const pastelColor = "#a2d2ff";
 
     const getStockImage = (filmStock) => {
-        if (filmStock?.includes('50D')) return '/images/50D.png';
-        if (filmStock?.includes('200T')) return '/images/200T.png';
-        if (filmStock?.includes('7266')) return '/images/7266.png';
-        if (filmStock?.includes('100D')) return '/images/100D.png';
-        if (filmStock?.includes('500T')) return '/images/500T.png';
+        // Return the imported variables instead of strings
+        if (filmStock?.includes('50D')) return img50D;
+        if (filmStock?.includes('200T')) return img200T;
+        if (filmStock?.includes('7266')) return img7266;
+        if (filmStock?.includes('100D')) return img100D;
+        if (filmStock?.includes('500T')) return img500T;
 
         // A fallback image if the stock doesn't match
-        return '/images/default-cartridge.jpg';
+        return defaultCartridge;
     };
 
     const stockImgSrc = getStockImage(stock);
@@ -22,7 +28,7 @@ export default function SpoolCard({ name, status, stock }) {
             style={{ '--card-color': pastelColor }}>
             <img src={stockImgSrc}
                 alt={`${stock} film`}
-                className="w-35 h-35 rounded-2xl" />
+                className="w-32 h-32 rounded-2xl" /> 
             <span className="text-white font-medium">{name}</span>
             <StatusSelect status={status} />
         </div>
