@@ -16,9 +16,6 @@ export default function SpoolCard({ name, status, stock }) {
         if (filmStock?.includes('7266')) return img7266;
         if (filmStock?.includes('100D')) return img100D;
         if (filmStock?.includes('500T')) return img500T;
-
-        // A fallback image if the stock doesn't match
-        return defaultCartridge;
     };
 
     const stockImgSrc = getStockImage(stock);
