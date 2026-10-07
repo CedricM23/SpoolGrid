@@ -1,12 +1,16 @@
 import { useEffect, useState } from 'react';
 import SpoolService from '../../services/SpoolService';
 
-export default function LogShotSheet() {
+export default function LogShotSheet({ preselectedSpoolId, preselectedSpoolName, preselectedSpoolStock }) {
     const [fps, setFps] = useState('18');
     const [framing, setFraming] = useState('Med');
     const [lighting, setLighting] = useState('sun');
     const [duration, setDuration] = useState('5s');
     const [spools, setSpools] = useState([])
+
+    const [shotData, setShotData] = useState({
+        spoolId: preselectedSpoolId || '',
+    });
 
     useEffect(() => {
         setSpools(SpoolService.getSpools());
@@ -121,13 +125,28 @@ export default function LogShotSheet() {
                         <label className="label pb-1 pt-0">
                             <span className="text-[10px] text-[#ffcc00] uppercase font-bold tracking-wider">Assign to Spool</span>
                         </label>
-                        <select className="select select-sm select-bordered border-gray-700 bg-[#111] text-white w-full text-base">
-                            {/* Grab the names of each cartridge and diplay name and stock type */}
-                            <option disabled defaultValue>Select active cartridge...</option>
-                            {spools.map((spool, index) => (
-                                <option key={index}>{spool.name} ({spool.stock})</option>
-                            ))}
+                        <select className="select select-bordered bg-neutral-900 text-white w-full">
+
+                            {preselectedSpoolName ? (
+                                /* Show only the locked, preselected spool */
+                                <option value={preselectedSpoolId}>
+                                    {preselectedSpoolName} ({preselectedSpoolStock})
+                                </option>
+                            ) : (
+                                /* Wrap multiple sibling elements in a React Fragment */
+                                <>
+                                    <option disabled value="">Select a spool...</option>
+
+                                    {
+                                        spools.map((spool) => (
+                                            <option key={spool.id} value={spool.id}>
+                                                {spool.name} ({spool.stock})
+                                            </option>
+                                        ))}
+                                </>
+                            )}
                         </select>
+
                     </div>
 
                     {/* Submit */}
