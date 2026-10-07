@@ -153,7 +153,7 @@ export default function SpoolDetailView() {
                                 <div className="timeline-end mb-4">
                                     <time className="text-xs text-neutral-500 font-medium">{['at-lab', 'received'].includes(spool.status) ? "Oct 6, 2026" : "--"}</time>
                                     <div className="text-sm text-white font-medium">Shipped to Lab</div>
-                                    <div className="text-xs text-neutral-400 mt-0.5">Sent to your preffered lab</div>
+                                    <div className="text-xs text-neutral-400 mt-0.5">Sent to your preferred lab</div>
                                     {/* add usps, fedex or ups API for tracking */}
                                 </div>
                                 <hr className={spool.status === 'received' ? "bg-[#ffcc00]" : "bg-neutral-700"} />
