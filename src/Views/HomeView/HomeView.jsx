@@ -27,7 +27,6 @@ export default function HomeView() {
 
             <header className="sticky top-0 z-50 bg-[#0a0a0a]/70 backdrop-blur-xl border-b border-gray-800/80 shadow-lg shadow-black/50 pt-[max(env(safe-area-inset-top),1rem)] pb-3 px-4 flex items-center justify-between">
 
-
                 <div className="flex items-center gap-2 max-md:mt-5">
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffcc00" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                         <circle cx="12" cy="12" r="10"></circle>
@@ -60,7 +59,7 @@ export default function HomeView() {
 
                 <div className="flex flex-wrap gap-3 justify-center m-2 pb-40 pt-4 min-h-[calc(100vh-100px)]">
                     {spools.map((spool, index) => (
-                        <SpoolCard key={`${spool.id || index}-${refreshKey}`} name={spool.name} status={spool.status} stock={spool.stock} />
+                        <SpoolCard key={`${spool.id || index}-${refreshKey}`} spool={spool} />
                     ))}
                 </div>
             </PullToRefresh>
