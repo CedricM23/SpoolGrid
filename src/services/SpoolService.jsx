@@ -22,7 +22,8 @@ const spools = [
         type: "Daylight",
         stockType: "Color Negative",
         status: "standby",
-        isArchived: false
+        isArchived: false,
+        assignedCamera: "Bell & Howell Autoload 1201"
     },
     {
         id: 2,
@@ -32,7 +33,8 @@ const spools = [
         type: "Tungsten",
         stockType: "Color Negative",
         status: "at-lab",
-        isArchived: false
+        isArchived: false,
+        assignedCamera: "Bolex H16"
     },
     {
         id: 3,
@@ -42,7 +44,8 @@ const spools = [
         type: "Daylight/Tungsten",
         stockType: "B&W Reversal",
         status: "shooting",
-        isArchived: false
+        isArchived: false,
+        assignedCamera: "Sankyo Seiki ES-44XL"
     },
     {
         id: 4,
@@ -52,7 +55,8 @@ const spools = [
         type: "Daylight",
         stockType: "Color Reversal",
         status: "exposed",
-        isArchived: false
+        isArchived: false,
+        assignedCamera: "Pro8mm Rhonda CAM"
     },
     {
         id: 5,
@@ -62,7 +66,8 @@ const spools = [
         type: "Tungsten",
         stockType: "Color Negative",
         status: "received",
-        isArchived: false
+        isArchived: false,
+        assignedCamera: "Sankyo Seiki ES-44XL"
     },
     {
         id: 6,
@@ -72,7 +77,8 @@ const spools = [
         type: "Daylight",
         stockType: "Color Negative",
         status: "shooting",
-        isArchived: true
+        isArchived: true,
+        assignedCamera: "Bell & Howell Autoload 1201"
     },
     {
         id: 7,
@@ -82,7 +88,8 @@ const spools = [
         type: "Daylight",
         stockType: "Color Reversal",
         status: "standby",
-        isArchived: false
+        isArchived: false,
+        assignedCamera: "Pro8mm Rhonda CAM"
     },
     {
         id: 8,
@@ -92,7 +99,8 @@ const spools = [
         type: "Tungsten",
         stockType: "Color Negative",
         status: "at-lab",
-        isArchived: false
+        isArchived: false,
+        assignedCamera: "Sankyo Seiki ES-44XL"
     },
     {
         id: 9,
@@ -102,7 +110,8 @@ const spools = [
         type: "Daylight/Tungsten",
         stockType: "B&W Reversal",
         status: "standby",
-        isArchived: false
+        isArchived: false,
+        assignedCamera: "Bell & Howell Autoload 1201"
     },
     {
         id: 10,
@@ -112,6 +121,7 @@ const spools = [
         type: "Tungsten",
         stockType: "Color Negative",
         status: "received",
-        isArchived: true
+        isArchived: true,
+        assignedCamera: "ARRIFLEX 435"
     }
 ]
