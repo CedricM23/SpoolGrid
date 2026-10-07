@@ -7,6 +7,7 @@ import LoadSpoolView from './Views/LoadSpoolView/LoadSpoolView'
 import SettingsView from './Views/SettingsView/SettingsView'
 import ArchivedView from './Views/ArchivedView/ArchivedView'
 import { registerSW } from 'virtual:pwa-register'
+import SpoolDetailView from './Views/SpoolDetailView/SpoolDetailView'
 
 function App() {
 
@@ -21,9 +22,10 @@ function App() {
           <Route path="/spool/new" element={<LoadSpoolView />} />
           <Route path='/settings' element={<SettingsView />}/>
           <Route path='/Archived' element={<ArchivedView/>} />
+          <Route path='/spool/:id' element={<SpoolDetailView/>} />
         </Routes>
         <BottomNavbar />
-        <LogShotSheet />
+      
       </BrowserRouter>
     </div>
   )
