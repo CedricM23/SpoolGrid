@@ -40,11 +40,10 @@ export default function ArchivedView() {
 
                 <div className="flex flex-wrap gap-3 justify-center m-2 pb-40 pt-4 min-h-[calc(100vh-100px)]">
                     {spools.map((spool, index) => (
-                        <SpoolCard key={`${spool.id || index}-${refreshKey}`} name={spool.name} status={spool.status} stock={spool.stock} />
+                        <SpoolCard key={`${spool.id || index}-${refreshKey}`} spool={spool} />
                     ))}
                 </div>
             </PullToRefresh>
-
         </>
     )
 }
