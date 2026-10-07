@@ -153,7 +153,8 @@ export default function SpoolDetailView() {
                                 <div className="timeline-end mb-4">
                                     <time className="text-xs text-neutral-500 font-medium">{['at-lab', 'received'].includes(spool.status) ? "Oct 6, 2026" : "--"}</time>
                                     <div className="text-sm text-white font-medium">Shipped to Lab</div>
-                                    <div className="text-xs text-neutral-400 mt-0.5">Sent to Pro8mm</div>
+                                    <div className="text-xs text-neutral-400 mt-0.5">Sent to your preffered lab</div>
+                                    {/* add usps, fedex or ups API for tracking */}
                                 </div>
                                 <hr className={spool.status === 'received' ? "bg-[#ffcc00]" : "bg-neutral-700"} />
                             </li>
@@ -240,7 +241,7 @@ export default function SpoolDetailView() {
                             </svg>
                         </button>
 
-                        {/* Force Sync */}
+                        {/* TODO: connect to API call to allow users to edit spool details */}
                         <button className="btn btn-md bg-neutral-900 border border-gray-700 hover:border-[#ffcc00] hover:bg-gray-800 text-white hover:text-[#ffcc00] rounded-2xl w-full flex justify-between items-center px-4 transition-all">
                             <span className="font-medium text-base">Edit Details</span>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5">
@@ -250,6 +251,7 @@ export default function SpoolDetailView() {
 
 
                         {/* Delete / Archive */}
+                        {/* TODO: add api call for spool arching, IMPORTANT:  SPOOL CAN ONLY BE DELETED IF IT'S ARCHIVED */}
                         <button className="btn btn-md bg-neutral-900 border border-red-900 hover:border-[#ffcc00] hover:bg-gray-800 text-white hover:text-[#ffcc00] rounded-2xl w-full flex justify-between items-center px-4 transition-all">
                             <span className="font-medium text-base text-red-500">Archive Spool</span>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5 text-red-500">
