@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 // Define the configurations for your 4 states
 const STATUS_OPTIONS = [
